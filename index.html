@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình ảnh ngẫu nhiên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            width: 1200px;
+            height: 1200px;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hình ảnh ngẫu nhiên</h1>
+    <button id="changeImage">Đổi hình ảnh</button>
+    <div>
+        <img id="randomImage" src="images/image1.jpg" alt="Hình ảnh ngẫu nhiên">
+    </div>
+
+    <script>
+        // Mảng các đường dẫn ảnh (đảm bảo đường dẫn chính xác)
+        const imageUrls = [
+            "images/image1.jpg",
+            "images/image2.jpg",
+            "images/image3.jpg"
+        ];
+
+        // Lấy nút và thẻ img
+        const button = document.getElementById("changeImage");
+        const img = document.getElementById("randomImage");
+
+        // Thêm sự kiện click cho nút
+        button.addEventListener("click", () => {
+            const randomIndex = Math.floor(Math.random() * imageUrls.length);
+            img.src = imageUrls[randomIndex]; // Đổi ảnh
+        });
+    </script>
+</body>
+</html>
