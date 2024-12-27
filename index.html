@@ -60,7 +60,7 @@
 <body>
     <h1>Trò Chơi Đoán Ý Đồng Đội</h1>
     <div id="image-container">
-        <img id="display-image" src="" alt="" hidden>
+        <img id="display-image" src="images/image0.jpg" alt="">
     </div>
     <button id="change-image">Đổi hình ảnh</button>
 
@@ -70,10 +70,7 @@
             "images/image2.jpg",
             "images/image3.jpg",
             "images/image4.jpg",
-            "images/image5.jpg",
-            "images/image6.jpg",
-            "images/image7.jpg",
-            "images/image8.jpg"
+            "images/image5.jpg"
         ];
 
         let remainingImages = [...imagePaths];
@@ -93,7 +90,6 @@
             const imgElement = document.getElementById("display-image");
             const newImage = getRandomImage();
             imgElement.src = newImage;
-            imgElement.hidden = false;
         });
     </script>
 </body>
