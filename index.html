@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đoán Ý Đồng Đội</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        #image-container {
+            width: 800px;
+            height: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        #image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            #image-container {
+                width: 90%;
+                height: auto;
+                aspect-ratio: 2 / 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Trò Chơi Đoán Ý Đồng Đội</h1>
+    <div id="image-container">
+        <img id="display-image" src="" alt="" hidden>
+    </div>
+    <button id="change-image">Đổi hình ảnh</button>
+
+    <script>
+        const imagePaths = [
+            "images/image1.jpg",
+            "images/image2.jpg",
+            "images/image3.jpg",
+            "images/image4.jpg",
+            "images/image5.jpg"
+        ];
+
+        let remainingImages = [...imagePaths];
+
+        function getRandomImage() {
+            if (remainingImages.length === 0) {
+                remainingImages = [...imagePaths];
+            }
+
+            const randomIndex = Math.floor(Math.random() * remainingImages.length);
+            const selectedImage = remainingImages[randomIndex];
+            remainingImages.splice(randomIndex, 1);
+            return selectedImage;
+        }
+
+        document.getElementById("change-image").addEventListener("click", () => {
+            const imgElement = document.getElementById("display-image");
+            const newImage = getRandomImage();
+            imgElement.src = newImage;
+            imgElement.hidden = false;
+        });
+    </script>
+</body>
+</html>
